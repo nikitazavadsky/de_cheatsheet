@@ -23,9 +23,14 @@ Common ones are:
 * Data modeling
 * Frameworks (coming soon)
 
-### Test tasks
+### Full table of content:
 
-[Test tasks section](./test_tasks/) contains test tasks that were sent to candidates to evaluate their knowledge from perspective of practical abilities
+* [**English ver.**](toc.md)
+* [Russian ver.](toc.ru.md)
+
+### Test assignments
+
+[Test assignments section](./test_assignment/) contains test tasks that were sent to candidates to evaluate their knowledge from perspective of practical abilities
 
 ## Contribution
 
@@ -33,5 +38,7 @@ Common ones are:
 
 There are some rules:
 
-1. Single merge request per [interview question](#inverview-questions)/[test task](#test-tasks)
+1. Single merge request per [interview question](#inverview-questions)/[test task](#test-assignments) or translation
 2. Structure proposals should be addressed with Issue topic
+3. Use templates provided in [interview](./interview/) or [test assignment](./test_assignment/)
+4. Be nice to each other in merge requests and github issues

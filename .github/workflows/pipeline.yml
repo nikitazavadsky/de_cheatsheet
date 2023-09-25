@@ -1,0 +1,31 @@
+name: Update Files
+
+on:
+  push:
+    branches:
+      - main  # Change this to your repository's default branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11
+
+      - name: Execute Script
+        run: |
+          python toc_generator.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.email "actions@example.com"
+          git config --global user.name "GitHub Actions"
+          git add .
+          git commit -m "Re-generate table of content"
+          git push
