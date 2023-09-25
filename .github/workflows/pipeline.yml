@@ -21,15 +21,13 @@ jobs:
       - name: Execute Script
         run: |
           python toc_generator.py
-      - name: Configure Git
+      - name: Commit and Push Changes
         run: |
           git config --global user.email "actions@example.com"
           git config --global user.name "GitHub Actions"
           git remote set-url origin https://$ACTIONS_PAT@github.com/nikitazavadsky/de_cheatsheet.git
-        env:
-          ACTIONS_PAT: ${{ secrets.ACTIONS_PAT }}
-      - name: Commit and Push Changes
-        run: |
           git add .
           git commit -m "Re-generate table of content"
           git push
+        env:
+          ACTIONS_PAT: ${{ secrets.ACTIONS_PAT }}
