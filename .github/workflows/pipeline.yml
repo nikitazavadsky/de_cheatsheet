@@ -11,7 +11,9 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.ACTIONS_PAT }}
 
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -21,10 +23,7 @@ jobs:
       - name: Execute Script
         run: |
           python toc_generator.py
-      - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.ACTIONS_PAT }}
-          ref: ${{ github.head_ref }}
+
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Update TOC
