@@ -8,6 +8,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
 
     steps:
       - name: Checkout code
@@ -21,13 +25,6 @@ jobs:
       - name: Execute Script
         run: |
           python toc_generator.py
-      - name: Commit and Push Changes
-        run: |
-          git config --global user.email "actions@example.com"
-          git config --global user.name "GitHub Actions"
-          git remote set-url origin https://$ACTIONS_PAT@github.com/nikitazavadsky/de_cheatsheet.git
-          git add .
-          git commit -m "Re-generate table of content"
-          git push
-        env:
-          ACTIONS_PAT: ${{ secrets.ACTIONS_PAT }}
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "[Github Actions] Update TOC"
