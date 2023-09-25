@@ -5,7 +5,7 @@
 1. What is process?
 2. What is thread?
 3. What are the differences?
-4. Difference between multitasking, multithreading and multiprocessing?
+4. Difference between multitasking, multithreading and multiprocessing
 
 ## Answer
 
