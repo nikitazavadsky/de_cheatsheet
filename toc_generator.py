@@ -88,12 +88,12 @@ def generate_toc_file():
         )
         with open(filename_by_language, "w", encoding="utf-8") as toc_language:
             for folder, available_folder_data in overall_data_dict.items():
-                toc_language.write(f"## {folder.capitalize()}\n\n")
+                toc_language.write(f"## {capitalize_snake_case(folder)}\n\n")
 
                 data_by_language = available_folder_data.get(language)
                 if data_by_language:
                     for subsection, questions in data_by_language.items():
-                        toc_language.write(f"### {subsection.capitalize()}\n")
+                        toc_language.write(f"### {capitalize_snake_case(subsection)}\n")
                         for question in questions:
                             for name, path in question.items():
                                 file_path = os.path.join(path, name)
